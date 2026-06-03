@@ -11,10 +11,11 @@ import { register, login, refreshAccessToken, getMe, logout, } from '../controll
 // router.route('/')
 //     .post(catchAsync(register));
 
+router.get('/me', protect, catchAsync(getMe));
+
 router.post('/register', catchAsync(register));
 router.post('/login', catchAsync(login));
 router.post('/refresh-token', catchAsync(refreshAccessToken));
-router.get('/me', protect, catchAsync(getMe));
 router.post('/logout', protect, catchAsync(logout));
 
 

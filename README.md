@@ -1,68 +1,176 @@
-# Express.js Project Template
+# Express.js Starter Template
 
-A structured, production-ready Express.js project template designed to bootstrap new Node.js APIs quickly. It follows the MVC (Model-View-Controller) architecture and comes pre-configured with essential utilities like centralized error handling, async wrappers, and database connection setup.
+A production-ready Express.js starter template built for rapidly bootstrapping scalable Node.js APIs. It follows the MVC (Model-View-Controller) architecture and comes pre-configured with MongoDB, JWT authentication dependencies, centralized error handling, and a clean project structure.
 
 ## 🚀 Features
 
-- **MVC Architecture**: Clear separation of concerns for scalable applications.
-- **Centralized Error Handling**: Built-in custom `AppError` class and global `errorHandler` middleware.
-- **Async Error Catching**: `catchAsync` wrapper to eliminate repetitive `try-catch` blocks in controllers.
-- **Modular Routing**: Separated route definitions for cleaner code organization.
-- **Database Ready**: Structure ready for database connectivity (`lib/db.js`).
+* **MVC Architecture** for maintainable and scalable applications.
+* **Express 5** with modern ESM support.
+* **MongoDB + Mongoose** integration.
+* **JWT Authentication Ready**.
+* **Centralized Error Handling** with custom error middleware.
+* **Async Error Wrapper** to eliminate repetitive try-catch blocks.
+* **Cookie Parsing & CORS** pre-configured.
+* **Environment Variable Management** using dotenv.
+* **Health Check Endpoint** included.
+* **Clean Folder Structure** for rapid project setup.
+
+---
+
+## ⚡ Quick Start
+
+Create a new project using this template:
+
+```bash
+npx degit Maahhbuub/express-starter my-app
+```
+
+Navigate to the project:
+
+```bash
+cd my-app
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create your environment file:
+
+```bash
+copy .env.example .env
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+---
 
 ## 📁 Project Structure
 
 ```text
-├── app.js                   # Application entry point & Express app setup
-├── config/                  # Environment variables and configuration files
-├── controllers/             # Route handlers/business logic (e.g., users.js)
-├── helper/                  # Reusable helper functions
-├── lib/                     # Third-party integrations & setups (e.g., db.js)
-├── middlewares/             # Custom Express middlewares (e.g., errorHandler.js)
-├── models/                  # Database models/schemas (e.g., users.js)
-├── routes/                  # API route declarations (e.g., users.js)
-└── utils/                   # General utility classes and functions
-    ├── appError.js          # Custom error class for operational errors
-    └── catchAsync.js        # Wrapper for async functions to catch errors automatically
+.
+├── src/
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── controllers/
+│   │
+│   ├── middlewares/
+│   │   └── errorHandler.js
+│   │
+│   ├── models/
+│   │
+│   ├── routes/
+│   │
+│   ├── utils/
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── .env.example
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
-## 🛠️ Getting Started
+---
 
-### Prerequisites
+## 🔧 Environment Variables
 
-- [Node.js](https://nodejs.org/)
-- npm or yarn
+Create a `.env` file in the root directory and configure the following variables:
 
-### Installation
+```env
+PORT=5000
 
-1. Copy this template folder for your new project.
-2. Initialize your project and install the required dependencies (like `express`, `mongoose`/`pg`, etc.):
-   ```bash
-   npm init -y
-   npm install express
-   npm install dotenv
-   npm install mongoose # or prisma for PostgreSQL
-   # Install any other dependencies your specific project needs
-   ```
+MONGO_URL=mongodb://127.0.0.1:27017/express_template
 
-### Running the Application
+CLIENT_URL=http://localhost:5173
 
-To start the server, open your terminal in the root directory and run:
+JWT_ACCESS_SECRET=your_access_secret
+
+JWT_REFRESH_SECRET=your_refresh_secret
+```
+
+---
+
+## 📜 Available Scripts
+
+Run the development server with hot reload:
+
 ```bash
-node app.js
+npm run dev
 ```
-*(Tip: It is highly recommended to install `nodemon` for development and add a start script in your `package.json`.)*
 
-## 💡 How to Use This Template
+Run the application in production mode:
 
-1. **Creating a New Resource**: 
-   - Add a model in the `models/` folder.
-   - Add business logic in the `controllers/` folder (wrapped in `catchAsync`).
-   - Define endpoints in the `routes/` folder and link them to your controller functions.
-   - Mount your new router inside `app.js`.
-2. **Throwing Exceptions**: 
-   Simply use `return next(new AppError('Item not found', 404));` from any controller, and the global error handler will take care of the rest.
+```bash
+npm start
+```
 
-## 📝 License
+---
 
-This project is open-source and available under the [MIT License](LICENSE).
+## ❤️ Built-in Utilities
+
+### Global Error Handling
+
+Handle application errors consistently using centralized middleware.
+
+### Async Error Wrapper
+
+Avoid repetitive try-catch blocks in controllers.
+
+### Health Check Endpoint
+
+```http
+GET /health
+```
+
+Response:
+
+```json
+{
+  "status": "healthy",
+  "uptime": 120
+}
+```
+
+---
+
+## 🛠️ How to Extend
+
+### Add a New Resource
+
+1. Create a model inside `models/`
+2. Create controller functions inside `controllers/`
+3. Create routes inside `routes/`
+4. Register the router in `app.js`
+
+### Authentication
+
+JWT-related dependencies are already included:
+
+* jsonwebtoken
+* bcrypt
+* cookie-parser
+
+You can quickly build authentication and authorization flows on top of the existing structure.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.
+
+If you find this template useful, consider giving the repository a ⭐.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
