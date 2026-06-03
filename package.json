@@ -1,0 +1,33 @@
+{
+  "name": "express-template",
+  "version": "1.0.0",
+  "description": "A structured, production-ready Express.js project template designed to bootstrap new Node.js APIs quickly. It follows the MVC (Model-View-Controller) architecture and comes pre-configured with essential utilities like centralized error handling, async wrappers, and database connection setup.",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maahhbuub/Express-Template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Maahhbuub/Express-Template/issues"
+  },
+  "homepage": "https://github.com/Maahhbuub/Express-Template#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.3"
+  }
+}
