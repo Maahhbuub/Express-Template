@@ -14,6 +14,7 @@ export const createUserSchema = z.object({
             .string({
                 required_error: "Email is required",
             })
+            .trim()
             .email("Invalid email address")
             .transform((email) => email.toLowerCase()),
 
@@ -31,6 +32,7 @@ export const loginUserSchema = z.object({
             .string({
                 required_error: "Email is required",
             })
+            .trim()
             .email("Invalid email address"),
 
         password: z
