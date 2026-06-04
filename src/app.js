@@ -3,10 +3,10 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 // middleware
-import { globalError, invalidRoute } from "./middlewares/errorHandler.js";
+import { globalError, invalidRoute } from "./middlewares/error.middleware.js";
 
 // routes
-import authRoute from "./routes/authRoute.js";
+import authRoute from "./routes/auth.routes.js";
 
 const app = express();
 

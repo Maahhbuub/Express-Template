@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/users.js";
+import User from "../models/user.model.js";
 import { clearTokenCookies } from "../utils/tokenCookies.js";
 
 const protect = async (req, res, next) => {
