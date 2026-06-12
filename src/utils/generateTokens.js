@@ -1,13 +1,13 @@
 import jwt from 'jsonwebtoken';
 
-const generateAccessToken = (userId) => {
-    return jwt.sign({ id: userId }, process.env.ACCESS_TOKEN_SECRET, {
+const generateAccessToken = (id) => {
+    return jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN,
     });
 };
 
-const generateRefreshToken = (userId) => {
-    return jwt.sign({ id: userId }, process.env.REFRESH_TOKEN_SECRET, {
+const generateRefreshToken = (id) => {
+    return jwt.sign({ id }, process.env.REFRESH_TOKEN_SECRET, {
         expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN,
     });
 };

@@ -8,7 +8,7 @@ export const createUserSchema = z.object({
             })
             .trim()
             .min(1, "Name is required")
-            .max(100, "Name cannot exceed 100 characters"),
+            .max(50, "Name cannot exceed 50 characters"),
 
         email: z
             .string({
@@ -22,7 +22,8 @@ export const createUserSchema = z.object({
             .string({
                 required_error: "Password is required",
             })
-            .min(6, "Password must be at least 6 characters"),
+            .min(6, "Password must be at least 6 characters")
+            .max(100, "Password cannot exceed 100 characters"),
     }),
 });
 
