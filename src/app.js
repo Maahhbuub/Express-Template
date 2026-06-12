@@ -25,7 +25,7 @@ app.use(
 app.use("/api/auth", authRoute);
 
 // health check
-app.get("/health", (req, res) => {
+app.get("/api/health", (req, res) => {
     res.status(200).json({
         status: "healthy",
         uptime: process.uptime(),

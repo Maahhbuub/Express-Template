@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
-import { clearTokenCookies } from "../utils/tokenCookies.js";
 
 const protect = async (req, res, next) => {
     let accessToken;
@@ -26,6 +25,6 @@ const protect = async (req, res, next) => {
 
     req.user = user;
     next();
-}
+};
 
 export { protect };
